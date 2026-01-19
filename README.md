@@ -15,7 +15,7 @@
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/sh00von/excuse-as-a-service.git
 cd EAAS
 
 # Install dependencies
