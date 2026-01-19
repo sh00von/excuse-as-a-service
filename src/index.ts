@@ -3,6 +3,7 @@ import cors from 'cors';
 import { createRequire } from 'module';
 
 const require = createRequire(import.meta.url);
+const cowsay = require('cowsay');
 const excuseDatabase = require('./data/excuses.json');
 const categories = Object.keys(excuseDatabase);
 
@@ -38,6 +39,23 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+// One helper to rule them all
+const sendExcuse = (res: express.Response, req: express.Request, excuse: string) => {
+    const format = req.query.format as string;
+
+    if (format === 'cowsay') {
+        res.setHeader('Content-Type', 'text/plain');
+        return res.send(cowsay.say({
+            text: excuse,
+            e: "oO",
+            T: "U "
+        }));
+    }
+
+    res.json({ text: excuse });
+};
+
 // API Routes
 app.get('/', (req, res) => {
     res.json({
@@ -53,9 +71,7 @@ app.get('/', (req, res) => {
 
 app.get('/api/excuse', (req, res) => {
     const excuse = getRandomExcuse();
-    res.json({
-        text: excuse
-    });
+    sendExcuse(res, req, excuse);
 });
 
 app.get('/api/excuse/:category', (req, res) => {
@@ -69,9 +85,7 @@ app.get('/api/excuse/:category', (req, res) => {
     }
 
     const excuse = getExcuseByCategory(category);
-    res.json({
-        text: excuse
-    });
+    sendExcuse(res, req, excuse);
 });
 
 app.get('/api/categories', (req, res) => {

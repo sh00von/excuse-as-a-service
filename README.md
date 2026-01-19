@@ -9,6 +9,7 @@
 - **Extensive Database**: A wide variety of excuses ranging from polite declines to creative absurdities.
 - **RESTful API**: Simple endpoints to fetch excuses by category or randomly.
 - **JSON Response**: Clean, lightweight JSON output containing just the text you need.
+- **Cowsay Mode**: Get your excuses delivered by an ASCII cow (because why not?).
 - **Categories**: Polite, Funny, Introvert, Lazy, Savage, and Developer.
 
 ## 📦 Installation
@@ -69,6 +70,28 @@ GET /api/excuse
 {
   "text": "I have to wash my hair that decade."
 }
+```
+
+#### 🐮 Cowsay Mode
+
+Add `?format=cowsay` to any excuse endpoint to get the excuse delivered by a cow.
+
+```bash
+GET /api/excuse?format=cowsay
+```
+
+**Response:**
+
+```text
+ _________________________________________
+/ I have to wash my hair that decade.     \
+\                                         /
+ -----------------------------------------
+        \   ^__^
+         \  (oO)\_______
+            (__)\       )\/\
+             U  ||----w |
+                ||     ||
 ```
 
 ### 3. Get Category-Specific Excuse
