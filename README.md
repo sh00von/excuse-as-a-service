@@ -52,7 +52,10 @@ GET /
     "/api/excuse/:category",
     "/api/categories",
     "/api/stats"
-  ]
+  ],
+  "tips": {
+    "cowsay": "Add ?format=cowsay to any excuse endpoint to get ASCII art output 🐮"
+  }
 }
 ```
 
