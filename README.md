@@ -1,4 +1,4 @@
-# 🎭 Excuse as a Service (EaaS) API
+# 🎭 Excuse as a Service (ExaaS) API
 
 > A simple, pragmatic API that serves realistic excuses for avoiding responsibilities.
 
